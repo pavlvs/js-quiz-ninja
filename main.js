@@ -4,17 +4,38 @@ const quiz = [
     ['What is Batman\'s real name?', 'Bruce Wayne']
 ]
 
-let score = 0 // initialize score
+function start(quiz) {
+    let score = 0 // initialize score
 
-for (const [question, answer] of quiz) {
-    const response = prompt(question)
-    if (response === answer) {
-        alert('Correct')
-        score++
-    } else {
-        alert(`Wrong! The correct anser was ${answer}`)
+    // main game loop
+
+    for (const [question, answer] of quiz) {
+        const response = prompt(question)
+        check(response, answer)
+    }
+
+    // end of main game loop
+
+    gameOver()
+
+    // function declarations
+    function ask(question) {
+        return prompt(question)
+    }
+
+    function check(response, answer) {
+        if (response === answer) {
+            alert('Correct')
+            score++
+        } else {
+            alert(`Wrong! The correct answer was ${answer}`)
+        }
+    }
+
+    function gameOver() {
+        alert(`Game over,  you scored ${score} points`)
     }
 }
 
-// At the end of the game , report the player's score
-alert(`Game over,  you scored ${score} points`)
+
+start(quiz)
