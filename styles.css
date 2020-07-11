@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo+Da+2&family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@800&family=Roboto&display=swap');
 
 body {
   background: #5f1c1c;
@@ -24,7 +24,7 @@ body {
 h1 {
   color: #611bbd;
   font-family: 'Baloo Da 2', cursive;
-  font-weight: 900;
+  font-weight: 800;
   text-align: center;
   font-size: 48px;
   margin: 0;
