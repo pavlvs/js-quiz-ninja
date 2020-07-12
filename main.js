@@ -33,7 +33,7 @@ function start(quiz) {
     }
 
     function gameOver() {
-        alert(`Game over,  you scored ${score} points`)
+        alert(`Game over,  you scored ${score} point${score !== 1 ? 's' : ''}`)
     }
 }
 
