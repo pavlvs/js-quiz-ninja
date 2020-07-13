@@ -12,6 +12,7 @@ const view = {
     info: document.getElementById('info'),
     start: document.getElementById('start'),
     response: document.querySelector('#response'),
+    timer: document.querySelector('#timer strong'),
     render(target, content, attributes) {
         for (const key in attributes) {
             target.setAttribute(key, attributes[key])
@@ -49,6 +50,8 @@ const game = {
     start(quiz) {
         this.score = 0
         this.questions = [...quiz]
+        this.secondsRemaining = 20
+        this.timer = setInterval(this.countdown, 1000)
         view.setup()
         this.ask()
     },
@@ -75,9 +78,17 @@ const game = {
         view.resetForm()
         this.ask()
     },
+    countdown() {
+        game.secondsRemaining--
+        view.render(view.timer, game.secondsRemaining)
+        if (game.secondsRemaining <= 0) {
+            game.gameOver()
+        }
+    },
     gameOver() {
         view.render(view.info, `Game Over, you scored ${this.score} point${this.score !== 1 ? 's' : ''}`)
         view.tearDown()
+        clearInterval(this.timer)
     }
 }
 
